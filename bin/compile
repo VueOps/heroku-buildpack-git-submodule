@@ -57,5 +57,6 @@ echo "-----> Fetched shallow history from $GIT_REPO_URL"
 git submodule -q update --init --recursive
 echo "-----> Checked out all submodules"
 git submodule status | sed 's/^/       * /'
-git submodule foreach git pull origin development
-
+cd app/javascript/dms_frontend
+git checkout development
+git pull origin development
