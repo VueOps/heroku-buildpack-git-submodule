@@ -58,6 +58,7 @@ if [ $APP_NAME == 'hood-production' ]
 then
    BRANCH_NAME="master"
 elif [ $APP_NAME == 'hood-staging']
+then
    BRANCH_NAME="stage"
 fi
 echo $APP_NAME
