@@ -52,14 +52,21 @@ echo "-----> Installed SSH key from GIT_SSH_KEY"
 git fetch -q --depth 1 origin -a > /dev/null
 git checkout -q ${SOURCE_VERSION:-master} > /dev/null
 echo "-----> Fetched shallow history from $GIT_REPO_URL"
-echo "-----> APP name -------"
+echo "-----> APP name ------- $APP_NAME"
+BRANCH_NAME='development'
+if [ $APP_NAME == 'hood-production' ]
+then
+   BRANCH_NAME="master"
+elif [ $APP_NAME == 'hood-staging']
+   BRANCH_NAME="stage"
+fi
 echo $APP_NAME
 # initialize all the submodules
 git submodule -q update --init --recursive
 echo "-----> Checked out all submodules"
 git submodule update --remote
 cd app/javascript/dms_frontend
-git checkout development
+git checkout "$BRANCH_NAME"
 cd ../user_management
-git checkout development
+git checkout "$BRANCH_NAME"
 
