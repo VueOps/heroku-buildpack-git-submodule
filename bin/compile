@@ -60,7 +60,13 @@ then
     BRANCH_NAME="master"
 elif [ $APP_NAME == 'hood-staging' ]
 then
-    BRANCH_NAME="stage"
+    BRANCH_NAME="staging-deployments"
+elif [ $APP_NAME == 'hood-dev' ]
+then
+    BRANCH_NAME="qa2-deployments"
+elif [ $APP_NAME == 'hood-qa' ]
+then
+    BRANCH_NAME="qa-deployments"
 else
     echo "---------Development---"
 fi
