@@ -78,5 +78,5 @@ cd app/javascript/dms_frontend
 git checkout "$BRANCH_NAME"
 cd ../user_management
 git checkout "$BRANCH_NAME"
-cd ../product-catalog
+cd ../product_catalog
 git checkout "$BRANCH_NAME"
